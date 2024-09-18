@@ -47,8 +47,10 @@ You can obtain a free API key from [here](https://aistudio.google.com/app/apikey
 ### Using the API key
 Option A:
  - You can use the API key as a command line argument: `npx localelinter --key YOUR_API_KEY`
+
 Option B:
  - You can set the API key as an environment variable `export GEMINI_API_KEY=YOUR_API_KEY`
+
 Option C:
  - You can put the API key in a `.env` file, name it `GEMINI_API_KEY` and put it wherever you plan on running the program from.
 
