@@ -1,5 +1,5 @@
 import { createSpinner } from "nanospinner";
-import fs from "fs";
+import * as fs from "fs";
 import chalk from "chalk";
 import { confirm } from "@inquirer/prompts";
 import { GoogleGenerativeAI, } from "@google/generative-ai";

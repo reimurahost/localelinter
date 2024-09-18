@@ -1,8 +1,7 @@
 import { select, input, confirm } from "@inquirer/prompts";
 import chalk from "chalk";
 import { createSpinner } from "nanospinner";
-import { version } from "../index.js";
-import fs from "fs";
+import * as fs from "fs";
 import { lint } from "./lint.js";
 let foundFiles = [];
 let directoryToCheck;
@@ -48,7 +47,6 @@ function scanDirectory(dir) {
 }
 export async function stepMain(options) {
     directoryToCheck = options?.directory;
-    console.log(`${chalk.magenta("localelinter")} ${chalk.gray(`(v${version})`)}`);
     let cwd = process.cwd();
     if (!directoryToCheck) {
         // Get all directorys in the current directory

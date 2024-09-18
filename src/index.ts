@@ -1,11 +1,14 @@
 import { program } from "commander";
 import { Chalk } from "chalk";
-import fs from "fs";
+import * as fs from "fs";
 import { select, input, confirm } from "@inquirer/prompts";
 import { createSpinner } from "nanospinner";
 import { stepMain } from "./steps/main.js";
+import { config } from 'dotenv';
 
-export const version = "0.1.0";
+config();
+
+export const version = "1.0.1";
 const chalk = new Chalk();
 program
   .name("localelinter")
@@ -24,6 +27,10 @@ program
   .option("--llmnote [value]", "Add a note of context for the LLM.")
 program.parse();
 
+console.log(
+  `${chalk.magenta("localelinter")} ${chalk.gray(`(v${version})`)}`
+);
+
 const options = program.opts() as {
   directory?: string;
   filetype?: string; 
@@ -39,6 +46,7 @@ if (options.key) {
   process.env["GEMINI_API_KEY"] = options.key;
 }
 if (!process.env.GEMINI_API_KEY) {
-  console.log(chalk.bgRed.white("Gemini API key required, pass one with --key <apikey> or set it as an environment variable."))
+  console.log(chalk.bgRed.white("Gemini API key required, pass one with --key <apikey> or set it as an environment variable.\nGet one for free here: https://aistudio.google.com/app/apikey"))
+  process.exit(1);
 }
-await stepMain(options);
+stepMain(options);

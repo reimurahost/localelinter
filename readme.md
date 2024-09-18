@@ -42,8 +42,20 @@ Uses the Google Gemini API to check the localization files for grammar issues.
 +     "error": "Oopsie daisy! Could not fetch JARs",
 ```
 (we are ***very*** professional)
+## Obtaining an API key
+You can obtain a free API key from [here](https://aistudio.google.com/app/apikey).
+### Using the API key
+Option A:
+ - You can use the API key as a command line argument: `npx localelinter --key YOUR_API_KEY`
+Option B:
+ - You can set the API key as an environment variable `export GEMINI_API_KEY=YOUR_API_KEY`
+Option C:
+ - You can put the API key in a `.env` file, name it `GEMINI_API_KEY` and put it wherever you plan on running the program from.
 
-## License
+## Misc
+Google and Google Gemini are trademarks of Google LLC. This content is not affiliated with, endorsed by, or sponsored by Google LLC.
+
+### License
 ```
 MIT License
 

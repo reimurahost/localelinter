@@ -3,11 +3,10 @@
       // Base Options recommended for all projects
       "esModuleInterop": true,
       "skipLibCheck": true,
-      "target": "es2022",
+      "target": "ESNext",
       "allowJs": true,
       "resolveJsonModule": true,
       "moduleDetection": "force",
-      "isolatedModules": true,
       "rootDir": "src",
       "verbatimModuleSyntax": false,
       // Enable strict type checking so you can catch bugs early
@@ -19,9 +18,6 @@
       "outDir": "dist",
       // Emit type declarations
       "declaration": true,
-      "lib": [
-        "es2022"
-      ]
     },
     // Include the necessary files for your project
     "include": [
@@ -29,7 +25,7 @@
       "**/*.tsx"
     ],
     "exclude": [
-      "node_modules",
-      "dist"
+      "dist",
+      "add-shebang.ts"
     ]
   }
