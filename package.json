@@ -1,6 +1,6 @@
 {
   "name": "localelinter",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "type": "module",
   "description": "Checks your projects localization files for errors.",
   "main": "dist/index.js",

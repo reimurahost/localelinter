@@ -5,10 +5,11 @@ import { select, input, confirm } from "@inquirer/prompts";
 import { createSpinner } from "nanospinner";
 import { stepMain } from "./steps/main.js";
 import { config } from 'dotenv';
+import { GEMINI_API_KEY, setAPIKey } from "./misc/key.js";
 
 config();
-
-export const version = "1.0.1";
+setAPIKey(process.env.GEMINI_API_KEY)
+export const version = "1.0.3";
 const chalk = new Chalk();
 program
   .name("localelinter")
@@ -43,9 +44,9 @@ const options = program.opts() as {
   llmnote: string;
 };
 if (options.key) {
-  process.env["GEMINI_API_KEY"] = options.key;
+  setAPIKey(options.key);
 }
-if (!process.env.GEMINI_API_KEY) {
+if (GEMINI_API_KEY == undefined) {
   console.log(chalk.bgRed.white("Gemini API key required, pass one with --key <apikey> or set it as an environment variable.\nGet one for free here: https://aistudio.google.com/app/apikey"))
   process.exit(1);
 }
